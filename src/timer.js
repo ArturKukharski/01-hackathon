@@ -6,14 +6,18 @@ export function set_timer() { //Установка таймера + создан
     timerElement.style.bottom = 0;
     timerElement.style.left = 0;
     document.body.append(timerElement);
-    let result = prompt('На сколько установить таймер?', 30);
+    let result = parseInt(prompt('На сколько установить таймер?', 30), 10);    
+    if (isNaN(result)) {
+        alert('Введите корректное число для таймера');
+        return;
+    }
     let remainTime = Date.now() + (result*1000)
     intervalTimer = setInterval(function(){
         timeLeft = Math.round((remainTime - Date.now()) / 1000);
         if(timeLeft < 0){
           clearInterval(intervalTimer);
           timerElement.remove();
-          alert('done');
+          alert('Пора пить кофе');
           return ;
         }
         displayTimeLeft(timeLeft);
