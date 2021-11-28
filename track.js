@@ -4,7 +4,7 @@ new Audio('./assets/sms.mp3'),
 new Audio('./assets/arms.mp3'),
 new Audio('./assets/beep.mp3')];
 
-let currentAudio;
+export let currentAudio;
 
 export function play_audio(task) {
 
